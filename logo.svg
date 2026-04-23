@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 80" role="img" aria-label="Vibe Profits">
+  <circle cx="40" cy="40" r="28" fill="none" stroke="#1A7F47" stroke-width="2"/>
+  <text x="40" y="52" font-family="'Fraunces', Georgia, 'Times New Roman', serif" font-weight="700" font-size="34" fill="#1A7F47" text-anchor="middle">$</text>
+  <text x="86" y="52" font-family="'Fraunces', Georgia, 'Times New Roman', serif" font-weight="700" font-size="34" fill="#14120F">Vibe <tspan fill="#1A7F47">Profits</tspan></text>
+</svg>
