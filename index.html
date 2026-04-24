@@ -5,75 +5,199 @@
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Vibe Profits — ship revenue-generating tools in days</title>
 <meta name="description" content="For agencies, consultants, and creators who want software revenue without hiring a developer." />
+<meta property="og:title" content="Vibe Profits" />
+<meta property="og:description" content="Ship revenue-generating tools in days. Without developers." />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://vibeprofits.com" />
 <link rel="icon" type="image/svg+xml" href="favicon.svg" />
 <link rel="preload" as="image" href="images/david-kiyosaki-connect.png" />
 <link rel="preload" as="image" href="images/matt-leitz-connect.png" />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,500;0,600;0,700;1,500;1,700&family=Inter:wght@400;500;600&family=Caveat:wght@500;600&display=swap" rel="stylesheet" />
 <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-  <div class="shell">
+
+  <div class="noise-overlay" aria-hidden="true"></div>
+  <div class="scroll-progress" aria-hidden="true"></div>
+  <div class="cursor-orb" aria-hidden="true"></div>
+
+  <div class="sticky-header" id="sticky-header" aria-hidden="true">
+    <div class="sticky-header-inner">
+      <a class="logo" href="#top">
+        <span class="seal" aria-hidden="true">$</span>
+        <span class="word">Vibe <em>Profits</em></span>
+      </a>
+      <a class="btn-mini" href="#waitlist">Hold my seat</a>
+    </div>
+  </div>
+
+  <div class="shell" id="top">
     <header class="top">
       <a class="logo" href="index.html" aria-label="Vibe Profits home">
         <span class="seal" aria-hidden="true">$</span>
         <span class="word">Vibe <em>Profits</em></span>
       </a>
-      <span class="status"><span class="dot" aria-hidden="true"></span>Cohort 01</span>
+      <span class="status"><span class="dot" aria-hidden="true"></span>Cohort 01 · Seats open</span>
     </header>
 
-    <main class="hero">
-      <div class="stack">
-        <h1>Ship revenue-generating tools in days. <em>Without developers.</em></h1>
+    <div class="marquee" aria-hidden="true">
+      <div class="marquee-track">
+        <span class="marquee-item"><strong>Cohort 01 open</strong><span class="marquee-dot"></span>Alongside Robert Kiyosaki &amp; Matt Leitz<span class="marquee-dot"></span>Built live in Austin<span class="marquee-dot"></span><strong>Ship week one</strong><span class="marquee-dot"></span>Limited to 50 operators<span class="marquee-dot"></span>Automator AI + Claude Code<span class="marquee-dot"></span></span>
+        <span class="marquee-item"><strong>Cohort 01 open</strong><span class="marquee-dot"></span>Alongside Robert Kiyosaki &amp; Matt Leitz<span class="marquee-dot"></span>Built live in Austin<span class="marquee-dot"></span><strong>Ship week one</strong><span class="marquee-dot"></span>Limited to 50 operators<span class="marquee-dot"></span>Automator AI + Claude Code<span class="marquee-dot"></span></span>
+      </div>
+    </div>
 
-        <p class="tags" aria-label="Examples of tools you can build">
-          <span>Lead forms</span>
-          <span>Quiz funnels</span>
-          <span>Pricing calculators</span>
-          <span>Client portals</span>
-        </p>
+    <main class="hero" id="hero">
+      <div class="hero-grid">
+        <div class="hero-left">
+          <span class="eyebrow-hero">Cohort 01 · For operators</span>
 
-        <p class="mechanism">
-          Built with the same Automator AI + Claude Code stack I use for paying clients.
-        </p>
+          <h1>Ship revenue-generating tools in days. <em>Without developers.</em></h1>
 
-        <p class="sub">
-          For agencies, consultants, and creators who want software revenue without hiring a developer.
-        </p>
+          <p class="tags" aria-label="Examples of tools you can build">
+            <span>Lead forms</span>
+            <span>Quiz funnels</span>
+            <span>Pricing calculators</span>
+            <span>Client portals</span>
+          </p>
 
-        <section class="press" aria-label="Event appearances">
-          <p class="press-label">As seen at</p>
-          <div class="press-row">
-            <figure class="press-tile press-tile--wide">
-              <img src="images/david-kiyosaki-connect.png" alt="David Gonzalez speaking on stage at Connect alongside Robert Kiyosaki" loading="eager" />
-            </figure>
-            <figure class="press-tile press-tile--square">
-              <img src="images/matt-leitz-connect.png" alt="Matt Leitz speaking on stage at Connect" loading="eager" />
-            </figure>
-          </div>
-          <p class="press-caption"><strong>Connect</strong> &nbsp;·&nbsp; Alongside Robert Kiyosaki &amp; Matt Leitz</p>
-        </section>
+          <p class="mechanism">
+            Built with the same Automator AI + Claude Code stack I use for paying clients.
+          </p>
 
-        <form action="thanks.html" method="get" novalidate>
-          <label class="sr-only" for="email">Email address</label>
-          <input id="email" name="email" type="email" required placeholder="you@company.com" autocomplete="email" />
-          <button type="submit">Hold my seat</button>
-        </form>
+          <p class="sub">
+            For agencies, consultants, and creators who want software revenue without hiring a developer.
+          </p>
 
-        <p class="signature">
-          <span class="sig-name">David Gonzalez</span> · Personally reads every reply.
-        </p>
+          <form id="waitlist-form" action="https://impartylist.activehosted.com/proc.php" method="POST">
+            <input type="hidden" name="u" value="1" />
+            <input type="hidden" name="f" value="1" />
+            <input type="hidden" name="s" />
+            <input type="hidden" name="c" value="0" />
+            <input type="hidden" name="m" value="0" />
+            <input type="hidden" name="act" value="sub" />
+            <input type="hidden" name="v" value="2" />
+            <input type="hidden" name="or" value="6f5343a4-e29b-447a-8f4f-bf5ef756699c" />
+            <label class="sr-only" for="email">Email address</label>
+            <input id="email" name="email" type="email" required placeholder="you@company.com" autocomplete="email" />
+            <button type="submit" data-magnetic>
+              <span class="btn-dot" aria-hidden="true"></span>
+              <span class="btn-label">Hold my seat</span>
+            </button>
+          </form>
+
+          <p class="signature">
+            <span class="sig-name">David Gonzalez</span> · Personally reads every reply.
+          </p>
+        </div>
+
+        <aside class="hero-right">
+          <section class="press" aria-label="Event appearances">
+            <p class="press-label">As seen at</p>
+            <div class="press-row" id="press-row">
+              <figure class="press-tile press-tile--wide" data-tilt>
+                <img src="images/david-kiyosaki-connect.png" alt="David Gonzalez speaking on stage at Connect alongside Robert Kiyosaki" loading="eager" />
+              </figure>
+              <figure class="press-tile press-tile--square" data-tilt>
+                <img src="images/matt-leitz-connect.png" alt="Matt Leitz speaking on stage at Connect" loading="eager" />
+              </figure>
+            </div>
+            <p class="press-caption"><strong>Connect</strong> &nbsp;·&nbsp; Alongside Robert Kiyosaki &amp; Matt Leitz</p>
+            <ul class="press-quotes">
+              <li><strong>David</strong> shares the Austin ecosystem playbook on stage.</li>
+              <li><strong>Matt Leitz</strong> — Inc. 500 founder, Automator AI &amp; BotBuilders.</li>
+            </ul>
+          </section>
+        </aside>
       </div>
     </main>
 
-    <footer class="foot">
+    <section class="metrics" id="metrics" aria-label="Vibe Profits at a glance">
+      <div class="metric">
+        <span class="metric-value" data-count="17"><em>17</em><span class="unit"> yrs</span></span>
+        <span class="metric-label">Austin ecosystem</span>
+      </div>
+      <div class="metric">
+        <span class="metric-value" data-count="20000"><em>20,000</em><span class="unit">+</span></span>
+        <span class="metric-label">Operators in the rooms</span>
+      </div>
+      <div class="metric">
+        <span class="metric-value"><em>$2B</em><span class="unit">+ facilitated</span></span>
+        <span class="metric-label">Partnership deals</span>
+      </div>
+      <div class="metric">
+        <span class="metric-value"><em>50</em><span class="unit"> seats</span></span>
+        <span class="metric-label">Cohort 01 cap</span>
+      </div>
+    </section>
+
+    <section class="philosophy" aria-label="The Vibe Profits approach">
+      <div class="philosophy-header">
+        <span class="eyebrow-hero">The approach</span>
+        <h2>Not another AI course. A <em>ship-first</em> cohort for operators already in motion.</h2>
+      </div>
+
+      <div class="philosophy-row">
+        <span class="philosophy-num">01</span>
+        <div class="philosophy-text">
+          <h3>Tools, not toys.</h3>
+          <p>Week one you ship something an agency client would actually pay for. <strong>A lead qualifier, a pricing calculator, a branded report, a client portal.</strong> Real deliverables, not to-do apps.</p>
+        </div>
+      </div>
+
+      <div class="philosophy-row">
+        <span class="philosophy-num">02</span>
+        <div class="philosophy-text">
+          <h3>Two tools, one toolkit.</h3>
+          <p><strong>Automator AI</strong> for speed — forms, portals, funnels, client deliverables. <strong>Claude Code</strong> for depth — custom builds, real engineering. You learn both. You pick the right one for the job.</p>
+        </div>
+      </div>
+
+      <div class="philosophy-row">
+        <span class="philosophy-num">03</span>
+        <div class="philosophy-text">
+          <h3>Access is the product.</h3>
+          <p>Ship something real and you get amplified on my platforms, introduced into the right rooms, and invited into the ecosystem <strong>17 years of Austin operators trust</strong>. The software is the admission fee. The room is the reward.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="cohort-progress" aria-label="Cohort 01 availability">
+      <div class="cohort-text">
+        <p class="cohort-label">Cohort 01 · Now open</p>
+        <p class="cohort-count"><em id="seats-taken">7</em> of 50 seats claimed.</p>
+        <p class="cohort-sub">We close at 50 or on the first 20 shipped builds — whichever comes first.</p>
+      </div>
+      <div class="cohort-bar" aria-hidden="true">
+        <span class="cohort-bar-fill" id="cohort-fill"></span>
+      </div>
+    </section>
+
+    <section class="founder-note" aria-label="Note from David">
+      <div class="founder-note-inner">
+        <p class="founder-note-label">A note from David</p>
+        <p class="founder-note-body">
+          No templates. No funnels pretending to be conversations. You reply, <em>I read it</em>. Tell me what you're building — or what you're stuck on — and I'll point you at the right tool, the right room, or the right operator inside the network.
+        </p>
+        <p class="founder-note-sign">— David</p>
+        <a class="btn" href="#waitlist">
+          <span class="btn-dot" aria-hidden="true"></span>
+          Take my seat in Cohort 01
+        </a>
+      </div>
+    </section>
+
+    <footer class="foot" id="waitlist">
       <span>&copy; 2026 <span class="by">Vibe Profits.</span> A project by David Gonzalez.</span>
       <nav aria-label="Legal">
-        <a href="terms.html">Terms</a>
-        <a href="privacy.html">Privacy</a>
+        <a href="terms.html" data-hover>Terms</a>
+        <a href="privacy.html" data-hover>Privacy</a>
       </nav>
     </footer>
   </div>
+
+  <script src="motion.js" defer></script>
 </body>
 </html>
