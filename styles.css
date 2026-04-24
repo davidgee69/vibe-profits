@@ -1320,6 +1320,79 @@ button .btn-dot {
 }
 .easter-toast.is-visible { opacity: 1; transform: translateY(0); }
 
+/* ---- FAQ section (editorial hairline pattern) ---- */
+.faq {
+  margin: clamp(56px, 12vh, 120px) 0 0;
+  max-width: 940px;
+}
+.faq-header {
+  margin: 0 0 clamp(24px, 5vh, 40px);
+  max-width: 640px;
+}
+.faq-header h2 {
+  font-size: clamp(28px, 3.8vw, 44px);
+  line-height: 1.1;
+  letter-spacing: -0.025em;
+  margin: 0;
+  color: var(--ink);
+}
+.faq-header h2 em { font-style: italic; color: var(--money); }
+.faq-list {
+  margin: 0;
+  padding: 0;
+  border-top: 1px solid var(--hairline);
+}
+.faq-item {
+  padding: clamp(20px, 4vh, 30px) 0;
+  border-bottom: 1px solid var(--hairline);
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 10px;
+  margin: 0;
+  transition: background 240ms ease;
+}
+.faq-item:hover { background: rgba(26,127,71,0.025); }
+@media (min-width: 760px) {
+  .faq-item {
+    grid-template-columns: minmax(220px, 320px) 1fr;
+    gap: clamp(24px, 4vw, 56px);
+    align-items: baseline;
+  }
+}
+.faq-item dt {
+  font-family: 'Fraunces', Georgia, serif;
+  font-weight: 600;
+  font-size: clamp(18px, 2vw, 22px);
+  color: var(--ink);
+  letter-spacing: -0.015em;
+  line-height: 1.25;
+  margin: 0;
+}
+.faq-item dd {
+  font-family: 'Inter', sans-serif;
+  font-size: clamp(15px, 1.4vw, 16px);
+  line-height: 1.6;
+  color: var(--muted);
+  margin: 0;
+  max-width: 58ch;
+}
+.faq-item dd strong { color: var(--ink); font-weight: 600; }
+
+/* ---- P.S. line (skimmer close) ---- */
+.ps-line {
+  margin: clamp(40px, 8vh, 72px) 0 0;
+  padding: 24px 0 0;
+  border-top: 1px solid var(--hairline);
+  font-family: 'Fraunces', Georgia, serif;
+  font-style: italic;
+  font-size: clamp(15px, 1.5vw, 17px);
+  line-height: 1.6;
+  color: var(--ink);
+  max-width: 58ch;
+  letter-spacing: -0.005em;
+}
+.ps-line em { font-style: italic; }
+
 /* ---- 7-week build calendar timeline ---- */
 .build-cal {
   margin: clamp(56px, 12vh, 120px) 0 0;
