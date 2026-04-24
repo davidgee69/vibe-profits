@@ -595,14 +595,8 @@ button .btn-dot {
   to   { opacity: 1; transform: translateY(0); }
 }
 
-@media (max-width: 959px) {
-  .press-row { grid-template-columns: 5.27fr 0.86fr; }
-  .press-tile--square { max-width: none; }
-}
 @media (max-width: 560px) {
   .press { padding: 14px; }
-  .press-row { grid-template-columns: 1fr; gap: 8px; }
-  .press-tile--square { max-width: 240px; margin: 0 auto; }
 }
 
 /* ---- metrics strip ---- */
