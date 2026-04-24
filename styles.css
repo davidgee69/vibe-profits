@@ -467,6 +467,112 @@ button .btn-dot {
 }
 .btn-ghost:hover { background: transparent; border-color: var(--ink); color: var(--ink); box-shadow: none; }
 
+/* ---- form urgency line (above the form) ---- */
+.form-urgency {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 14px;
+  margin: 0 0 14px;
+  background: rgba(26,127,71,0.08);
+  border: 1px solid rgba(26,127,71,0.22);
+  border-radius: 99px;
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--ink);
+  letter-spacing: 0.01em;
+  line-height: 1.4;
+  max-width: 520px;
+}
+.form-urgency strong { color: var(--money-deep); font-weight: 700; }
+.seats-dot {
+  width: 7px; height: 7px; border-radius: 50%;
+  background: var(--money);
+  flex-shrink: 0;
+  position: relative;
+}
+.seats-dot::after {
+  content: '';
+  position: absolute;
+  inset: -3px;
+  border-radius: 50%;
+  background: var(--money);
+  opacity: 0.3;
+  animation: breathe 2.4s ease-out infinite;
+}
+
+/* ---- mid-page CTA bar ---- */
+.mid-cta {
+  margin: clamp(48px, 10vh, 96px) 0 0;
+  padding: clamp(28px, 5vh, 44px);
+  border-radius: 22px;
+  background: linear-gradient(135deg, rgba(26,127,71,0.06) 0%, rgba(26,127,71,0.12) 100%);
+  border: 1px solid rgba(26,127,71,0.18);
+  box-shadow: var(--shadow-diffuse);
+  position: relative;
+  overflow: hidden;
+}
+.mid-cta::before {
+  content: '';
+  position: absolute;
+  top: -40%; right: -10%;
+  width: 480px; height: 480px;
+  border-radius: 50%;
+  background: radial-gradient(circle at center, rgba(26,127,71,0.22), transparent 62%);
+  pointer-events: none;
+  filter: blur(14px);
+}
+.mid-cta-inner {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 24px;
+  align-items: center;
+}
+@media (min-width: 760px) {
+  .mid-cta-inner { grid-template-columns: 1fr auto; gap: 40px; }
+}
+.mid-cta-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--money-deep);
+  margin: 0 0 10px;
+}
+.mid-cta-eyebrow::before {
+  content: '';
+  width: 22px; height: 1px; background: var(--money); display: inline-block;
+}
+.mid-cta-title {
+  font-family: 'Fraunces', Georgia, serif;
+  font-weight: 600;
+  font-size: clamp(26px, 3.4vw, 38px);
+  line-height: 1.1;
+  letter-spacing: -0.025em;
+  margin: 0 0 10px;
+  color: var(--ink);
+}
+.mid-cta-title em { font-style: italic; color: var(--money); }
+.mid-cta-sub {
+  font-size: 14px;
+  line-height: 1.55;
+  color: var(--muted);
+  margin: 0;
+  max-width: 54ch;
+}
+
+/* ---- btn-xl (used in mid-cta) ---- */
+.btn-xl {
+  font-size: 16px;
+  padding: 16px 28px;
+  border-radius: 12px;
+}
+
 /* ---- founder signature ---- */
 .signature {
   margin: 16px 0 0;
