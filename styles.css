@@ -1036,6 +1036,394 @@ button .btn-dot {
   .marquee-item { gap: 16px; padding: 0 16px; font-size: 11px; }
 }
 
+/* ========================================================
+   SECOND-PASS EBI (rounds 1-5): award-winning motion layer
+   ======================================================== */
+
+/* ---- ambient mesh gradient (hero atmospheric depth) ---- */
+.mesh-bg {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  overflow: hidden;
+  opacity: 0.9;
+}
+.mesh-blob {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(80px);
+  will-change: transform;
+  mix-blend-mode: multiply;
+}
+.mesh-blob--a {
+  width: 520px; height: 520px;
+  top: -140px; left: -120px;
+  background: radial-gradient(circle, rgba(26,127,71,0.28), transparent 70%);
+  animation: meshDriftA 28s ease-in-out infinite alternate;
+}
+.mesh-blob--b {
+  width: 640px; height: 640px;
+  top: 10%; right: -180px;
+  background: radial-gradient(circle, rgba(26,127,71,0.22), transparent 72%);
+  animation: meshDriftB 36s ease-in-out infinite alternate;
+}
+.mesh-blob--c {
+  width: 480px; height: 480px;
+  bottom: -140px; left: 30%;
+  background: radial-gradient(circle, rgba(242,233,207,0.9), transparent 70%);
+  animation: meshDriftC 44s ease-in-out infinite alternate;
+  mix-blend-mode: lighten;
+}
+@keyframes meshDriftA {
+  0%   { transform: translate3d(0, 0, 0) scale(1); }
+  100% { transform: translate3d(140px, 80px, 0) scale(1.15); }
+}
+@keyframes meshDriftB {
+  0%   { transform: translate3d(0, 0, 0) scale(1); }
+  100% { transform: translate3d(-100px, 120px, 0) scale(0.92); }
+}
+@keyframes meshDriftC {
+  0%   { transform: translate3d(0, 0, 0) scale(1); }
+  100% { transform: translate3d(60px, -100px, 0) scale(1.12); }
+}
+
+/* ---- shine border on mid-CTA (conic rotating gradient) ---- */
+.mid-cta.shine-border {
+  position: relative;
+  isolation: isolate;
+}
+.mid-cta.shine-border::after {
+  content: '';
+  position: absolute;
+  inset: -1px;
+  border-radius: inherit;
+  padding: 1px;
+  background: conic-gradient(from var(--shine-angle, 0deg),
+    transparent 0deg,
+    rgba(26,127,71,0.4) 30deg,
+    rgba(26,127,71,0.85) 45deg,
+    rgba(26,127,71,0.4) 60deg,
+    transparent 120deg,
+    transparent 360deg);
+  -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+  mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  pointer-events: none;
+  animation: shineSpin 6s linear infinite;
+  z-index: 2;
+}
+@property --shine-angle {
+  syntax: '<angle>';
+  initial-value: 0deg;
+  inherits: false;
+}
+@keyframes shineSpin {
+  from { --shine-angle: 0deg; }
+  to   { --shine-angle: 360deg; }
+}
+
+/* ---- draw-in SVG flourish under h1 em ---- */
+.h1-flourish {
+  display: inline-block;
+  width: 100%;
+  max-width: 280px;
+  height: 14px;
+  margin-top: 6px;
+  overflow: visible;
+}
+.h1-flourish path {
+  fill: none;
+  stroke: var(--money);
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-dasharray: 340;
+  stroke-dashoffset: 340;
+  animation: flourishDraw 1600ms cubic-bezier(0.16, 1, 0.3, 1) 1400ms forwards;
+}
+@keyframes flourishDraw {
+  to { stroke-dashoffset: 0; }
+}
+
+/* ---- giant kinetic wordmark ---- */
+.giant-mark {
+  margin: clamp(56px, 12vh, 120px) 0 0;
+  font-family: 'Fraunces', Georgia, serif;
+  font-weight: 600;
+  font-style: italic;
+  font-size: clamp(120px, 22vw, 280px);
+  line-height: 0.85;
+  letter-spacing: -0.05em;
+  color: transparent;
+  -webkit-text-stroke: 1px rgba(20,18,15,0.18);
+  text-stroke: 1px rgba(20,18,15,0.18);
+  white-space: nowrap;
+  overflow: hidden;
+  user-select: none;
+  position: relative;
+  pointer-events: none;
+}
+.giant-mark-track {
+  display: inline-block;
+  animation: markDrift 40s linear infinite;
+  will-change: transform;
+}
+.giant-mark-track em {
+  font-style: italic;
+  color: transparent;
+  -webkit-text-stroke: 1px rgba(26,127,71,0.4);
+  text-stroke: 1px rgba(26,127,71,0.4);
+  margin: 0 0.4em;
+}
+@keyframes markDrift {
+  from { transform: translate3d(0, 0, 0); }
+  to   { transform: translate3d(-50%, 0, 0); }
+}
+
+/* ---- philosophy row reveal (scroll-triggered) ---- */
+.philosophy-row {
+  opacity: 0;
+  transform: translateY(16px);
+  transition: opacity 720ms cubic-bezier(0.16, 1, 0.3, 1), transform 720ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+.philosophy-row.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+.philosophy-row::after {
+  content: '';
+  position: absolute;
+  top: 0; left: 0;
+  width: 0%;
+  height: 1px;
+  background: linear-gradient(90deg, var(--money), transparent);
+  transition: width 1400ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+.philosophy-row.is-visible::after {
+  width: 100%;
+}
+
+/* ---- metric flicker (post count-up) ---- */
+.metric-value.flicker em {
+  animation: flickerPulse 620ms ease-out;
+}
+@keyframes flickerPulse {
+  0%   { opacity: 1; }
+  15%  { opacity: 0.55; }
+  25%  { opacity: 1; }
+  40%  { opacity: 0.7; }
+  55%  { opacity: 1; }
+  100% { opacity: 1; }
+}
+
+/* ---- press-tile extended hover caption ---- */
+.press-tile {
+  position: relative;
+}
+.press-tile .press-tile-caption {
+  position: absolute;
+  left: 12px; right: 12px; bottom: 12px;
+  padding: 8px 12px;
+  background: rgba(15, 15, 36, 0.7);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-radius: 8px;
+  color: #F7F5F0;
+  font-family: 'Inter', system-ui, sans-serif;
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  opacity: 0;
+  transform: translateY(6px);
+  transition: opacity 420ms cubic-bezier(0.16, 1, 0.3, 1), transform 420ms cubic-bezier(0.16, 1, 0.3, 1);
+  pointer-events: none;
+}
+.press-tile.is-caption-visible .press-tile-caption {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ---- back-to-top floater ---- */
+.back-to-top {
+  position: fixed;
+  right: 24px;
+  bottom: 24px;
+  z-index: 45;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: var(--ink);
+  color: var(--bg);
+  border: 1px solid var(--ink);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  opacity: 0;
+  transform: translateY(12px);
+  transition: opacity 340ms ease, transform 340ms ease, background 220ms ease;
+  box-shadow: 0 14px 30px -14px rgba(20,18,15,0.5);
+  animation: floatY 3.2s ease-in-out infinite;
+  pointer-events: none;
+}
+.back-to-top.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+}
+.back-to-top:hover {
+  background: var(--money-deep);
+  border-color: var(--money-deep);
+}
+.back-to-top svg {
+  width: 18px; height: 18px;
+  stroke: currentColor;
+  stroke-width: 2;
+  fill: none;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+@keyframes floatY {
+  0%, 100% { transform: translateY(0); }
+  50%      { transform: translateY(-5px); }
+}
+
+/* ---- logo easter egg flip ---- */
+.logo .seal.is-flipping {
+  animation: sealFlip 900ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+@keyframes sealFlip {
+  0%   { transform: rotate(0deg) scale(1); background: transparent; color: var(--money); }
+  50%  { transform: rotate(180deg) scale(1.3); background: var(--money); color: var(--bg); }
+  100% { transform: rotate(360deg) scale(1); background: transparent; color: var(--money); }
+}
+.easter-toast {
+  position: fixed;
+  bottom: 84px;
+  right: 24px;
+  padding: 12px 16px;
+  background: var(--ink);
+  color: var(--bg);
+  border-radius: 10px;
+  font-size: 13px;
+  font-family: 'Fraunces', Georgia, serif;
+  font-style: italic;
+  z-index: 46;
+  opacity: 0;
+  transform: translateY(12px);
+  transition: opacity 300ms ease, transform 300ms ease;
+  box-shadow: var(--shadow-diffuse);
+  pointer-events: none;
+  max-width: 280px;
+}
+.easter-toast.is-visible { opacity: 1; transform: translateY(0); }
+
+/* ---- 7-week build calendar timeline ---- */
+.build-cal {
+  margin: clamp(56px, 12vh, 120px) 0 0;
+}
+.build-cal-header {
+  margin: 0 0 clamp(24px, 5vh, 40px);
+  max-width: 640px;
+}
+.build-cal-header h2 {
+  font-size: clamp(28px, 3.8vw, 44px);
+  line-height: 1.1;
+  letter-spacing: -0.025em;
+  margin: 0;
+  color: var(--ink);
+}
+.build-cal-header h2 em { font-style: italic; color: var(--money); }
+.build-cal-header .eyebrow-hero { margin-bottom: 14px; }
+.build-cal-header .build-cal-note {
+  font-size: 13px;
+  color: var(--muted);
+  margin: 10px 0 0;
+  max-width: 56ch;
+}
+.build-cal-timeline {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  border-top: 1px solid var(--hairline);
+  counter-reset: weekcounter;
+}
+.build-cal-step {
+  display: grid;
+  grid-template-columns: minmax(80px, 120px) 1fr minmax(120px, 200px);
+  gap: clamp(16px, 3vw, 40px);
+  padding: clamp(20px, 4vh, 32px) 0;
+  border-bottom: 1px solid var(--hairline);
+  position: relative;
+  transition: background 300ms ease;
+  align-items: baseline;
+}
+.build-cal-step:hover { background: rgba(26,127,71,0.03); }
+.build-cal-step::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 50%;
+  width: 0;
+  height: 2px;
+  background: var(--money);
+  transition: width 400ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+.build-cal-step:hover::before { width: 24px; }
+
+.build-cal-week {
+  font-family: 'Fraunces', Georgia, serif;
+  font-weight: 500;
+  font-style: italic;
+  font-size: clamp(18px, 2vw, 22px);
+  color: var(--money);
+  letter-spacing: -0.015em;
+  font-variant-numeric: tabular-nums;
+}
+.build-cal-tool {
+  font-family: 'Fraunces', Georgia, serif;
+  font-weight: 600;
+  font-size: clamp(20px, 2.4vw, 26px);
+  color: var(--ink);
+  line-height: 1.2;
+  letter-spacing: -0.015em;
+}
+.build-cal-tool-desc {
+  display: block;
+  font-family: 'Inter', sans-serif;
+  font-weight: 400;
+  font-size: 14px;
+  color: var(--muted);
+  margin-top: 4px;
+  line-height: 1.5;
+  letter-spacing: 0;
+  font-style: normal;
+}
+.build-cal-outcome {
+  font-family: 'Inter', sans-serif;
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--muted);
+  text-align: right;
+}
+.build-cal-outcome strong { color: var(--ink); font-weight: 600; display: block; font-size: 14px; letter-spacing: -0.005em; text-transform: none; margin-top: 2px; font-family: 'Fraunces', Georgia, serif; font-style: italic; }
+
+@media (max-width: 760px) {
+  .build-cal-step {
+    grid-template-columns: 1fr;
+    gap: 8px;
+    padding: 20px 0;
+  }
+  .build-cal-outcome { text-align: left; }
+}
+
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after {
     transition-duration: 0.01ms !important;

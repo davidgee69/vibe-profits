@@ -19,9 +19,18 @@
 </head>
 <body>
 
+  <div class="mesh-bg" aria-hidden="true">
+    <div class="mesh-blob mesh-blob--a"></div>
+    <div class="mesh-blob mesh-blob--b"></div>
+    <div class="mesh-blob mesh-blob--c"></div>
+  </div>
   <div class="noise-overlay" aria-hidden="true"></div>
   <div class="scroll-progress" aria-hidden="true"></div>
   <div class="cursor-orb" aria-hidden="true"></div>
+  <a href="#top" class="back-to-top" id="back-to-top" aria-label="Back to top">
+    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 19V5M5 12l7-7 7 7"/></svg>
+  </a>
+  <div class="easter-toast" id="easter-toast" aria-hidden="true">you found the easter egg. welcome to the operators who explore.</div>
 
   <div class="sticky-header" id="sticky-header" aria-hidden="true">
     <div class="sticky-header-inner">
@@ -54,7 +63,7 @@
         <div class="hero-left">
           <span class="eyebrow-hero">Cohort 01 · For operators</span>
 
-          <h1>Ship revenue-generating tools in days. <em>Without developers.</em></h1>
+          <h1>Ship revenue-generating tools in days. <em>Without developers.<svg class="h1-flourish" viewBox="0 0 280 14" aria-hidden="true" preserveAspectRatio="none"><path d="M2 9 C 40 2, 80 12, 130 6 S 220 12, 278 4"/></svg></em></h1>
 
           <p class="tags" aria-label="Examples of tools you can build">
             <span>Lead forms</span>
@@ -102,8 +111,9 @@
           <section class="press" aria-label="Recent stage">
             <p class="press-label">Recent stage</p>
             <div class="press-row" id="press-row">
-              <figure class="press-tile press-tile--wide" data-tilt>
+              <figure class="press-tile press-tile--wide" data-tilt data-caption="Connect · Austin, 2026">
                 <img src="images/david-kiyosaki-connect.png" alt="David Gonzalez speaking on stage at Connect alongside Robert Kiyosaki" loading="eager" />
+                <figcaption class="press-tile-caption">Connect · Austin, 2026</figcaption>
               </figure>
             </div>
             <p class="press-caption"><strong>Connect</strong> &nbsp;·&nbsp; Austin 2026 &nbsp;·&nbsp; Alongside Robert Kiyosaki</p>
@@ -131,7 +141,7 @@
       </div>
     </section>
 
-    <section class="mid-cta" aria-label="Hold your Cohort 01 seat">
+    <section class="mid-cta shine-border" aria-label="Hold your Cohort 01 seat">
       <div class="mid-cta-inner">
         <div class="mid-cta-copy">
           <span class="mid-cta-eyebrow">Cohort 01 · Closing soon</span>
@@ -143,6 +153,44 @@
           Hold my seat
         </a>
       </div>
+    </section>
+
+    <section class="build-cal" aria-label="The 7-week build calendar">
+      <div class="build-cal-header">
+        <span class="eyebrow-hero">The 7-week build</span>
+        <h2>What you ship, <em>week by week.</em></h2>
+        <p class="build-cal-note">Representative deliverables. Agency market rates. Your signature build is the one you invoice — and it's how you graduate.</p>
+      </div>
+      <ol class="build-cal-timeline">
+        <li class="build-cal-step">
+          <span class="build-cal-week">Week 01</span>
+          <span class="build-cal-tool">Lead qualifier
+            <span class="build-cal-tool-desc">Scored intake form that auto-routes hot leads. Every agency's client needs this on day one.</span>
+          </span>
+          <span class="build-cal-outcome">Market rate<strong>$5–10k client tool</strong></span>
+        </li>
+        <li class="build-cal-step">
+          <span class="build-cal-week">Week 02</span>
+          <span class="build-cal-tool">Pricing calculator
+            <span class="build-cal-tool-desc">Branded quote widget that embeds on client sites. Converts proposals into signed deals, faster.</span>
+          </span>
+          <span class="build-cal-outcome">Market rate<strong>$8–15k deliverable</strong></span>
+        </li>
+        <li class="build-cal-step">
+          <span class="build-cal-week">Week 03</span>
+          <span class="build-cal-tool">Client dashboard
+            <span class="build-cal-tool-desc">Auto-generated monthly report with the client's metrics. Agency's retainer reason-to-pay.</span>
+          </span>
+          <span class="build-cal-outcome">Market rate<strong>$15–25k project</strong></span>
+        </li>
+        <li class="build-cal-step">
+          <span class="build-cal-week">Week 07</span>
+          <span class="build-cal-tool">Your signature build
+            <span class="build-cal-tool-desc">A real project for a real client. You scope it, ship it, invoice it. That's how you graduate Cohort 01.</span>
+          </span>
+          <span class="build-cal-outcome">Your number<strong>Invoice it.</strong></span>
+        </li>
+      </ol>
     </section>
 
     <section class="philosophy" aria-label="The Vibe Profits approach">
@@ -186,6 +234,11 @@
         <span class="cohort-bar-fill" id="cohort-fill"></span>
       </div>
     </section>
+
+    <div class="giant-mark" aria-hidden="true">
+      <span class="giant-mark-track">ship. <em>invoice.</em> ship. <em>invoice.</em> ship. <em>invoice.</em> ship. <em>invoice.</em>&nbsp;</span>
+      <span class="giant-mark-track" aria-hidden="true">ship. <em>invoice.</em> ship. <em>invoice.</em> ship. <em>invoice.</em> ship. <em>invoice.</em>&nbsp;</span>
+    </div>
 
     <section class="founder-note" aria-label="Note from David">
       <div class="founder-note-inner">

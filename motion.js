@@ -257,6 +257,114 @@
     });
   })();
 
+  /* ---------- philosophy row scroll-triggered reveal ---------- */
+  (function initPhilosophyReveal() {
+    var rows = document.querySelectorAll('.philosophy-row');
+    if (!rows.length || !('IntersectionObserver' in window)) {
+      rows.forEach(function (r) { r.classList.add('is-visible'); });
+      return;
+    }
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('is-visible');
+          io.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.25 });
+    rows.forEach(function (r) { io.observe(r); });
+  })();
+
+  /* ---------- metric flicker after count-up completes ---------- */
+  (function initMetricFlicker() {
+    var nodes = document.querySelectorAll('[data-count]');
+    nodes.forEach(function (node) {
+      var target = parseInt(node.getAttribute('data-count'), 10);
+      if (!target) return;
+      var em = node.querySelector('em');
+      if (!em) return;
+      var prev = em.textContent;
+      var checker = setInterval(function () {
+        if (em.textContent !== prev) {
+          prev = em.textContent;
+          var digits = em.textContent.replace(/\D/g, '');
+          if (parseInt(digits || '0', 10) >= target) {
+            node.classList.add('flicker');
+            setTimeout(function () { node.classList.remove('flicker'); }, 700);
+            clearInterval(checker);
+          }
+        }
+      }, 60);
+      setTimeout(function () { clearInterval(checker); }, 4000);
+    });
+  })();
+
+  /* ---------- back-to-top visibility (appears past hero) ---------- */
+  (function initBackToTop() {
+    var btn = document.getElementById('back-to-top');
+    var hero = document.getElementById('hero');
+    if (!btn || !hero) return;
+    var threshold = 0;
+    function measure() { threshold = hero.offsetTop + hero.offsetHeight + 200; }
+    measure();
+    window.addEventListener('resize', measure, { passive: true });
+    var ticking = false;
+    function update() {
+      btn.classList.toggle('is-visible', window.scrollY > threshold);
+      ticking = false;
+    }
+    window.addEventListener('scroll', function () {
+      if (!ticking) { raf(update); ticking = true; }
+    }, { passive: true });
+  })();
+
+  /* ---------- triple-click $ seal easter egg ---------- */
+  (function initSealEgg() {
+    var seals = document.querySelectorAll('.logo .seal');
+    if (!seals.length) return;
+    var toast = document.getElementById('easter-toast');
+    var clicks = 0, timer = null;
+    seals.forEach(function (seal) {
+      seal.addEventListener('click', function (e) {
+        clicks++;
+        clearTimeout(timer);
+        timer = setTimeout(function () { clicks = 0; }, 700);
+        if (clicks >= 3) {
+          clicks = 0;
+          seal.classList.add('is-flipping');
+          setTimeout(function () { seal.classList.remove('is-flipping'); }, 950);
+          if (toast) {
+            toast.classList.add('is-visible');
+            toast.setAttribute('aria-hidden', 'false');
+            setTimeout(function () {
+              toast.classList.remove('is-visible');
+              toast.setAttribute('aria-hidden', 'true');
+            }, 3600);
+          }
+          e.preventDefault();
+        }
+      });
+    });
+  })();
+
+  /* ---------- press-tile extended-hover caption (800ms dwell) ---------- */
+  (function initTileCaption() {
+    var tiles = document.querySelectorAll('.press-tile[data-caption]');
+    if (!tiles.length) return;
+    tiles.forEach(function (tile) {
+      var timer = null;
+      tile.addEventListener('mouseenter', function () {
+        timer = setTimeout(function () {
+          tile.classList.add('is-caption-visible');
+        }, 800);
+      });
+      tile.addEventListener('mouseleave', function () {
+        clearTimeout(timer);
+        tile.classList.remove('is-caption-visible');
+      });
+    });
+  })();
+
   /* ---------- smooth scroll for in-page anchors ---------- */
   (function initSmoothScroll() {
     document.querySelectorAll('a[href^="#"]').forEach(function (a) {
