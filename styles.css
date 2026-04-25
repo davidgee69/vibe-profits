@@ -1320,6 +1320,167 @@ button .btn-dot {
 }
 .easter-toast.is-visible { opacity: 1; transform: translateY(0); }
 
+/* ---- qualifier two-column (for / not for) ---- */
+.qualifier {
+  margin: clamp(56px, 12vh, 120px) 0 0;
+  max-width: 1080px;
+}
+.qualifier-header {
+  margin: 0 0 clamp(24px, 5vh, 40px);
+  max-width: 720px;
+}
+.qualifier-header h2 {
+  font-size: clamp(28px, 3.8vw, 44px);
+  line-height: 1.1;
+  letter-spacing: -0.025em;
+  margin: 0;
+  color: var(--ink);
+}
+.qualifier-header h2 em { font-style: italic; color: var(--money); }
+.qualifier-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0;
+  border-top: 1px solid var(--hairline);
+  border-bottom: 1px solid var(--hairline);
+}
+@media (min-width: 760px) {
+  .qualifier-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+.qualifier-col {
+  padding: clamp(28px, 5vh, 44px) clamp(20px, 3vw, 32px);
+  position: relative;
+}
+@media (min-width: 760px) {
+  .qualifier-col--yes {
+    border-right: 1px solid var(--hairline);
+  }
+}
+@media (max-width: 759px) {
+  .qualifier-col--yes {
+    border-bottom: 1px solid var(--hairline);
+  }
+}
+.qualifier-title {
+  font-family: 'Fraunces', Georgia, serif;
+  font-weight: 600;
+  font-size: clamp(20px, 2.2vw, 24px);
+  letter-spacing: -0.015em;
+  margin: 0 0 18px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.qualifier-col--yes .qualifier-title { color: var(--money-deep); }
+.qualifier-col--no .qualifier-title { color: var(--muted); }
+.qualifier-col--yes .qualifier-title::before {
+  content: '';
+  display: inline-flex;
+  width: 22px; height: 22px;
+  border-radius: 50%;
+  background: var(--money);
+  flex-shrink: 0;
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'><polyline points='20 6 9 17 4 12'/></svg>");
+  background-size: 14px 14px;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+.qualifier-col--no .qualifier-title::before {
+  content: '';
+  display: inline-flex;
+  width: 22px; height: 22px;
+  border-radius: 50%;
+  background: rgba(20,18,15,0.08);
+  border: 1px solid var(--hairline-strong);
+  flex-shrink: 0;
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%235C584F' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'><line x1='18' y1='6' x2='6' y2='18'/><line x1='6' y1='6' x2='18' y2='18'/></svg>");
+  background-size: 12px 12px;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+.qualifier-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 14px;
+}
+.qualifier-list li {
+  font-size: clamp(15px, 1.4vw, 16px);
+  line-height: 1.55;
+  color: var(--ink);
+  padding-left: 22px;
+  position: relative;
+  max-width: 46ch;
+}
+.qualifier-list li::before {
+  content: '';
+  position: absolute;
+  left: 0; top: 0.65em;
+  width: 10px; height: 1px;
+  background: var(--hairline-strong);
+}
+.qualifier-col--yes .qualifier-list li::before { background: var(--money); }
+.qualifier-list li strong { color: var(--ink); font-weight: 700; }
+
+/* ---- elevated guarantee block ---- */
+.guarantee {
+  margin: clamp(48px, 10vh, 80px) 0 0;
+  padding: clamp(28px, 5vh, 44px) clamp(28px, 5vw, 56px);
+  border-radius: 22px;
+  background: linear-gradient(135deg, rgba(247,245,240,1) 0%, rgba(26,127,71,0.05) 100%);
+  border: 1px solid var(--hairline);
+  position: relative;
+  overflow: hidden;
+}
+.guarantee::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; bottom: 0;
+  width: 4px;
+  background: var(--money);
+}
+.guarantee-inner {
+  max-width: 720px;
+  position: relative;
+}
+.guarantee-label {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--money-deep);
+  margin: 0 0 14px;
+}
+.guarantee-label::before {
+  content: '';
+  width: 22px; height: 1px;
+  background: var(--money);
+  display: inline-block;
+}
+.guarantee-headline {
+  font-family: 'Fraunces', Georgia, serif;
+  font-weight: 600;
+  font-size: clamp(22px, 2.8vw, 30px);
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+  color: var(--ink);
+  margin: 0 0 12px;
+}
+.guarantee-headline em { font-style: italic; color: var(--money); }
+.guarantee-body {
+  font-size: clamp(15px, 1.5vw, 17px);
+  line-height: 1.6;
+  color: var(--muted);
+  margin: 0;
+  max-width: 60ch;
+}
+
 /* ---- FAQ section (editorial hairline pattern) ---- */
 .faq {
   margin: clamp(56px, 12vh, 120px) 0 0;
